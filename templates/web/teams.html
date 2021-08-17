@@ -1,0 +1,252 @@
+{% extends "web/base.html" %}
+{% load static %}
+
+{% block content %}
+		<div class="page-heading">
+			<div class="overlay">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-12">
+							<ul class="breadcrumb">
+								<li><a href="{% url 'home' %}">Home</a></li>
+								<li class="active">teams</li>
+							</ul>
+							<h2>Our Teams</h2>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div><!-- /.header-area -->
+		
+		<div class="featured-speakers-area mb-30">
+			<div class="container">
+				<div class="sub-heading">
+					<div class="row">
+						<div class="col-md-12">
+							<h4>Our teams</h4>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+                    {% for a in teams %}
+                        {% if a.no_urut < 3 %}
+					<div class="col-md-6">
+						<div class="single-featured-speaker primary-shadow white-bg">
+							<div class="row no-margin">
+								<div class="col-sm-6 no-padding">
+									<div class="speaker-cover">
+										<img src="/media/{{ a.foto }}" alt="speakers" height="300px"/>
+										<div class="speaker-over">
+											<ul>
+												<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+												<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+												<li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+											</ul>
+										</div>
+									</div>
+								</div>
+								<div class="col-sm-6 no-padding">
+									<div class="about-speaker">
+										<h6>{{ a.jabatan }}</h6>
+										<h4>{{ a.nama }}</h4>
+										<p>{{ a.keterangan |truncatewords:10 }}</p>
+										<a href="" data-toggle="modal" data-target="#fSpeaker-{{ a.id }}">More About Me</a>
+									</div>
+								</div>
+								<div class="modal fade" id="fSpeaker-{{ a.id }}" tabindex="-1">
+									<div class="container">
+										<div class="row">
+											<div class="col-md-2"></div>
+											<div class="col-md-8">
+												<div class="speaker-details white-bg primary-shadow">
+													<div class="row no-margin">
+														<div class="col-sm-5 no-padding">
+															<div class="speaker-images-slider">
+																<img src="/media/{{ a.foto }}" alt="speaker" />
+															</div>
+														</div>
+														<div class="col-sm-7 no-padding">
+															<div class="speaker-details-texts">
+																<div class="sdt-top">
+																	<h4>{{ a.nama }}</h4>
+																	<h6>{{ a.jabatan }}</h6>
+																	<ul>
+																		<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+																		<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+																		<li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+																	</ul>
+																</div>
+																<div class="sdt-bottom">
+																	<p>{{ a.keterangan }}</p>
+																	<a href="" class="button alt small" data-dismiss="modal">Close</a>
+																</div>
+															</div>
+														</div>
+													</div><!-- /.row -->
+												</div><!-- /.speaker-details -->
+											</div>
+											<div class="col-md-2"></div>
+										</div><!-- /.row -->
+									</div><!-- /.container -->
+								</div><!-- /.modal -->
+							</div>
+						</div>
+					</div><!-- /.col -->
+                        {% endif %}
+                    {% endfor %}
+				</div><!-- /.row -->
+			</div><!-- /.container -->
+		</div><!-- /.featured-speakers-area -->
+		
+		<div class="speakers-area grey-bg">
+			<div class="container">
+				<div class="sub-heading">
+                    <br>
+				</div>
+				<div class="row">
+                    {% for a in teams %}
+                        {% if a.no_urut > 2 %}
+					<div class="col-md-3 col-sm-6 mb30">
+						<div class="single-speaker primary-shadow white-bg">
+							<div class="speaker-cover">
+								<img src="/media/{{ a.foto }}" alt="cover" height="300px" />
+								<div class="sperker-cover-over">
+									<div class="speakers-thought">
+										<p>{{ a.keterangan | truncatewords:10 }}
+										</p>
+										<a href="" data-toggle="modal" data-target="#Speaker-{{ a.no_urut }}">More About Me</a>
+									</div>
+								</div>
+								<ul class="speaker-social">
+									<li><a href=""><i class="fa fa-facebook"></i></a></li>
+									<li><a href=""><i class="fa fa-twitter"></i></a></li>
+									<li><a href=""><i class="fa fa-dribbble"></i></a></li>
+								</ul>
+								<h6>{{ a.jabatan }}</h6>
+							</div>
+							<div class="modal fade" id="Speaker-{{ a.no_urut }}" tabindex="-1">
+								<div class="container">
+									<div class="row">
+										<div class="col-md-2"></div>
+										<div class="col-md-8">
+											<div class="speaker-details white-bg primary-shadow">
+												<div class="row no-margin">
+													<div class="col-sm-6 no-padding">
+														<div class="speaker-images-slider">
+															<img src="/media/{{ a.foto }}" alt="speaker" height="400px"/>
+														</div>
+													</div>
+													<div class="col-sm-6 no-padding">
+														<div class="speaker-details-texts">
+															<div class="sdt-top">
+																<h4>{{ a.nama }}</h4>
+																<h6>{{ a.jabatan }}</h6>
+																<ul>
+																	<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+																	<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+																	<li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+																</ul>
+															</div>
+															<div class="sdt-bottom">
+																<p>{{ a.keterangan }}</p>
+																<a href="" class="button alt small" data-dismiss="modal">Close</a>
+															</div>
+														</div>
+													</div>
+												</div><!-- /.row -->
+											</div><!-- /.speaker-details -->
+										</div>
+										<div class="col-md-2"></div>
+									</div><!-- /.row -->
+								</div><!-- /.container -->
+							</div><!-- /.modal -->
+							<div class="speaker-name">
+								<h5 title="{{ a.panggilan }}">{{ a.panggilan }}</h5>
+							</div>
+						</div><!-- /.single-speaker -->
+					</div><!-- /.col -->
+                            {% else %}
+                            {{ empty }}
+                        {% endif %}
+                    {% endfor %}
+			</div><!-- /.container -->
+		</div><!-- /.speakers-area -->
+
+
+        <div class="Scientific-area grey-bg">
+			<div class="container">
+				<div class="sub-heading">
+                    <div class="row">
+						<div class="col-md-12">
+							<h4>Scientific Coordinator</h4>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+                    {% for a in scientific %}
+
+					<div class="col-md-3 col-sm-6 mb30">
+						<div class="single-speaker primary-shadow white-bg">
+							<div class="speaker-cover">
+								<img src="/media/{{ a.foto }}" alt="cover" height="300px" />
+								<div class="sperker-cover-over">
+									<div class="speakers-thought">
+										<p>{{ a.keterangan | truncatewords:10 }}
+										</p>
+										<a href="" data-toggle="modal" data-target="#Speaker-{{ a.no_urut }}">More About Me</a>
+									</div>
+								</div>
+								<ul class="speaker-social">
+									<li><a href=""><i class="fa fa-facebook"></i></a></li>
+									<li><a href=""><i class="fa fa-twitter"></i></a></li>
+									<li><a href=""><i class="fa fa-dribbble"></i></a></li>
+								</ul>
+								<h6>{{ a.jabatan }}</h6>
+							</div>
+							<div class="modal fade" id="Speaker-{{ a.no_urut }}" tabindex="-1">
+								<div class="container">
+									<div class="row">
+										<div class="col-md-2"></div>
+										<div class="col-md-8">
+											<div class="speaker-details white-bg primary-shadow">
+												<div class="row no-margin">
+													<div class="col-sm-6 no-padding">
+														<div class="speaker-images-slider">
+															<img src="/media/{{ a.foto }}" alt="speaker" height="400px"/>
+														</div>
+													</div>
+													<div class="col-sm-6 no-padding">
+														<div class="speaker-details-texts">
+															<div class="sdt-top">
+																<h4>{{ a.nama }}</h4>
+																<h6>{{ a.jabatan }}</h6>
+																<ul>
+																	<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+																	<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+																	<li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+																</ul>
+															</div>
+															<div class="sdt-bottom">
+																<p>{{ a.keterangan }}</p>
+																<a href="" class="button alt small" data-dismiss="modal">Close</a>
+															</div>
+														</div>
+													</div>
+												</div><!-- /.row -->
+											</div><!-- /.speaker-details -->
+										</div>
+										<div class="col-md-2"></div>
+									</div><!-- /.row -->
+								</div><!-- /.container -->
+							</div><!-- /.modal -->
+							<div class="speaker-name">
+								<h5 title="{{ a.panggilan }}">{{ a.panggilan }}</h5>
+							</div>
+						</div><!-- /.single-speaker -->
+					</div><!-- /.col -->
+
+                    {% endfor %}
+			</div><!-- /.container -->
+		</div><!-- /.speakers-area -->
+
+{% endblock %}

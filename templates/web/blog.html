@@ -1,0 +1,299 @@
+{% extends "web/base.html" %}
+{% load static %}
+
+{% block content %}
+		<div class="page-heading">
+			<div class="overlay">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-12">
+							<ul class="breadcrumb">
+								<li><a href="index.html">Home</a></li>
+								<li class="active">Blog Page</li>
+							</ul>
+							<h2>Blog Page</h2>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div><!-- /.header-area -->
+		
+		<div class="blog-area page-section">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-8">
+						<div class="row">
+							<div class="col-sm-6 mb30">
+								<div class="single-blog white-bg primary-shadow">
+									<div class="sb-top">
+										<img src="{% static 'web/images/blog/1.jpg' %}" alt="blog" />
+										<div class="sb-over">
+											<div class="sb-over-innr">
+												<p>The way of Learning Design is all about the way you look on anything you see, or how you do imagine about somthing in your dream , also you need to be creative .</p>
+												<a href="{% url 'blog-detail' %}">Read More</a>
+											</div>
+										</div>
+										<div class="sb-meta">
+											<div class="sb-comment-count">
+												<a href="#"><i class="fa fa-comments"></i> <span>12</span> </a>
+											</div>
+											<div class="sb-tags">
+												<i class="fa fa-tags"></i>
+												<a href="#">Event</a> , <a href="#">Girl</a>
+											</div>
+										</div>
+										<div class="sb-social-share">
+											<a href="#" class="social-trigger"><i class="fa fa-share-alt"></i></a>
+											<ul>
+												<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+												<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+												<li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+											</ul>
+										</div>
+									</div>
+									<div class="sb-bottom">
+										<h6>14 DecEmber 2015</h6>
+										<h5><a href="{% url 'blog-detail' %}">Beautyfull girl outside of vanue</a></h5>
+									</div>
+								</div><!-- /.single-blog -->
+							</div><!-- /.col -->
+							<div class="col-sm-6 mb30">
+								<div class="single-blog white-bg primary-shadow">
+									<div class="sb-top">
+										<img src="{% static 'web/images/blog/2.jpg' %}" alt="blog" />
+										<div class="sb-over">
+											<div class="sb-over-innr">
+												<p>The way of Learning Design is all about the way you look on anything you see, or how you do imagine about somthing in your dream , also you need to be creative .</p>
+												<a href="{% url 'blog-detail' %}">Read More</a>
+											</div>
+										</div>
+										<div class="sb-meta">
+											<div class="sb-comment-count">
+												<a href="#"><i class="fa fa-comments"></i> <span>12</span> </a>
+											</div>
+											<div class="sb-tags">
+												<i class="fa fa-tags"></i>
+												<a href="#">Event</a> , <a href="#">Chair</a>
+											</div>
+										</div>
+										<div class="sb-social-share">
+											<a href="#" class="social-trigger"><i class="fa fa-share-alt"></i></a>
+											<ul>
+												<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+												<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+												<li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+											</ul>
+										</div>
+									</div>
+									<div class="sb-bottom">
+										<h6>09 DecEmber 2015</h6>
+										<h5><a href="{% url 'blog-detail' %}">Nice & Unique Chair for Visitors</a></h5>
+									</div>
+								</div><!-- /.single-blog -->
+							</div><!-- /.col -->
+							<div class="col-sm-6 mb30">
+								<div class="single-blog white-bg primary-shadow">
+									<div class="sb-top">
+										<img src="{% static 'web/images/blog/3.jpg' %}" alt="blog" />
+										<div class="sb-over">
+											<div class="sb-over-innr">
+												<p>The way of Learning Design is all about the way you look on anything you see, or how you do imagine about somthing in your dream , also you need to be creative .</p>
+												<a href="{% url 'blog-detail' %}">Read More</a>
+											</div>
+										</div>
+										<div class="sb-meta">
+											<div class="sb-comment-count">
+												<a href="#"><i class="fa fa-comments"></i> <span>12</span> </a>
+											</div>
+											<div class="sb-tags">
+												<i class="fa fa-tags"></i>
+												<a href="#">Event</a> , <a href="#">Note</a>
+											</div>
+										</div>
+										<div class="sb-social-share">
+											<a href="#" class="social-trigger"><i class="fa fa-share-alt"></i></a>
+											<ul>
+												<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+												<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+												<li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+											</ul>
+										</div>
+									</div>
+									<div class="sb-bottom">
+										<h6>07 DecEmber 2015</h6>
+										<h5><a href="{% url 'blog-detail' %}">Making our event Schedule</a></h5>
+									</div>
+								</div><!-- /.single-blog -->
+							</div><!-- /.col -->
+							<div class="col-sm-6 mb30">
+								<div class="single-blog white-bg primary-shadow">
+									<div class="sb-top">
+										<img src="{% static 'web/images/blog/1.jpg' %}" alt="blog" />
+										<div class="sb-over">
+											<div class="sb-over-innr">
+												<p>The way of Learning Design is all about the way you look on anything you see, or how you do imagine about somthing in your dream , also you need to be creative .</p>
+												<a href="{% url 'blog-detail' %}">Read More</a>
+											</div>
+										</div>
+										<div class="sb-meta">
+											<div class="sb-comment-count">
+												<a href="#"><i class="fa fa-comments"></i> <span>12</span> </a>
+											</div>
+											<div class="sb-tags">
+												<i class="fa fa-tags"></i>
+												<a href="#">Event</a> , <a href="#">Girl</a>
+											</div>
+										</div>
+										<div class="sb-social-share">
+											<a href="#" class="social-trigger"><i class="fa fa-share-alt"></i></a>
+											<ul>
+												<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+												<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+												<li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+											</ul>
+										</div>
+									</div>
+									<div class="sb-bottom">
+										<h6>14 DecEmber 2015</h6>
+										<h5><a href="{% url 'blog-detail' %}">Beautyfull girl outside of vanue</a></h5>
+									</div>
+								</div><!-- /.single-blog -->
+							</div><!-- /.col -->
+							<div class="col-sm-6 mb30">
+								<div class="single-blog white-bg primary-shadow">
+									<div class="sb-top">
+										<img src="{% static 'web/images/blog/2.jpg' %}" alt="blog" />
+										<div class="sb-over">
+											<div class="sb-over-innr">
+												<p>The way of Learning Design is all about the way you look on anything you see, or how you do imagine about somthing in your dream , also you need to be creative .</p>
+												<a href="{% url 'blog-detail' %}">Read More</a>
+											</div>
+										</div>
+										<div class="sb-meta">
+											<div class="sb-comment-count">
+												<a href="#"><i class="fa fa-comments"></i> <span>12</span> </a>
+											</div>
+											<div class="sb-tags">
+												<i class="fa fa-tags"></i>
+												<a href="#">Event</a> , <a href="#">Chair</a>
+											</div>
+										</div>
+										<div class="sb-social-share">
+											<a href="#" class="social-trigger"><i class="fa fa-share-alt"></i></a>
+											<ul>
+												<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+												<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+												<li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+											</ul>
+										</div>
+									</div>
+									<div class="sb-bottom">
+										<h6>09 DecEmber 2015</h6>
+										<h5><a href="{% url 'blog-detail' %}">Nice & Unique Chair for Visitors</a></h5>
+									</div>
+								</div><!-- /.single-blog -->
+							</div><!-- /.col -->
+							<div class="col-sm-6 mb30">
+								<div class="single-blog white-bg primary-shadow">
+									<div class="sb-top">
+										<img src="{% static 'web/images/blog/3.jpg' %}" alt="blog" />
+										<div class="sb-over">
+											<div class="sb-over-innr">
+												<p>The way of Learning Design is all about the way you look on anything you see, or how you do imagine about somthing in your dream , also you need to be creative .</p>
+												<a href="{% url 'blog-detail' %}">Read More</a>
+											</div>
+										</div>
+										<div class="sb-meta">
+											<div class="sb-comment-count">
+												<a href="#"><i class="fa fa-comments"></i> <span>12</span> </a>
+											</div>
+											<div class="sb-tags">
+												<i class="fa fa-tags"></i>
+												<a href="#">Event</a> , <a href="#">Note</a>
+											</div>
+										</div>
+										<div class="sb-social-share">
+											<a href="#" class="social-trigger"><i class="fa fa-share-alt"></i></a>
+											<ul>
+												<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+												<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+												<li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+											</ul>
+										</div>
+									</div>
+									<div class="sb-bottom">
+										<h6>07 DecEmber 2015</h6>
+										<h5><a href="{% url 'blog-detail' %}">Making our event Schedule</a></h5>
+									</div>
+								</div><!-- /.single-blog -->
+							</div><!-- /.col -->
+						</div><!-- /.row -->
+					</div>
+					<div class="col-md-4">
+						<div class="sidebar-area primary-shadow">
+							<div class="input-box-underline">
+								<input class="input" type="text" name="Your-name" id="Your-name" placeholder="Search" />
+							</div>
+							<div class="single-widget text-widget">
+								<h5>Text Widget</h5>
+								<p>Design is all about the way you look on anything you see, or how you do imagine about somthing in your dream , also you need to be creative . Now if you want to join this then good luck.</p>
+							</div><!-- /.single-widget -->
+							<div class="single-widget">
+								<h5>Recent Gallery</h5>
+								<ul class="gallery-list">
+									<li><img src="{% static 'web/images/gallery/thumb/1.jpg' %}" alt="gallery" /></li>
+									<li><img src="{% static 'web/images/gallery/thumb/2.jpg' %}" alt="gallery" /></li>
+									<li><img src="{% static 'web/images/gallery/thumb/3.jpg' %}" alt="gallery" /></li>
+									<li><img src="{% static 'web/images/gallery/thumb/4.jpg' %}" alt="gallery" /></li>
+									<li><img src="{% static 'web/images/gallery/thumb/2.jpg' %}" alt="gallery" /></li>
+									<li><img src="{% static 'web/images/gallery/thumb/1.jpg' %}" alt="gallery" /></li>
+									<li><img src="{% static 'web/images/gallery/thumb/2.jpg' %}" alt="gallery" /></li>
+									<li><img src="{% static 'web/images/gallery/thumb/3.jpg' %}" alt="gallery" /></li>
+									<li><img src="{% static 'web/images/gallery/thumb/4.jpg' %}" alt="gallery" /></li>
+									<li><img src="{% static 'web/images/gallery/thumb/2.jpg' %}" alt="gallery" /></li>
+								</ul>
+							</div><!-- /.single-widget -->
+							<div class="single-widget">
+								<h5>PopulAr Posts</h5>
+								<ul class="post-list">
+									<li class="widget-post">
+										<a class="clearfix" href="#">
+											<img src="{% static 'web/images/widgets/post/1.jpg' %}" alt="post" />
+											<h6>Making our event Schedule<small>14 DecEmber 2015</small></h6>
+										</a>
+									</li>
+									<li class="widget-post">
+										<a class="clearfix" href="#">
+											<img src="{% static 'web/images/widgets/post/2.jpg' %}" alt="post" />
+											<h6>Making our event Schedule<small>14 DecEmber 2015</small></h6>
+										</a>
+									</li>
+									<li class="widget-post">
+										<a class="clearfix" href="#">
+											<img src="{% static 'web/images/widgets/post/3.jpg' %}" alt="post" />
+											<h6>Making our event Schedule<small>14 DecEmber 2015</small></h6>
+										</a>
+									</li>
+								</ul>
+							</div><!-- /.single-widget -->
+							<div class="single-widget">
+								<h5>Tag Clouds</h5>
+								<ul class="tag-list">
+									<li><a href="#">VENUE</a></li>
+									<li><a href="#">Beautyfull</a></li>
+									<li><a href="#">SCHEDULE</a></li>
+									<li><a href="#">Unique</a></li>
+									<li><a href="#">Material</a></li>
+									<li><a href="#">Design</a></li>
+									<li><a href="#">MAKing</a></li>
+									<li><a href="#">GIRL</a></li>
+									<li><a href="#">Visitor</a></li>
+								</ul>
+							</div><!-- /.single-widget -->
+						</div><!-- /.sidebar-area -->
+					</div><!-- /.col -->
+				</div><!-- /.row -->	
+			</div><!-- /.container -->
+		</div><!-- /.blog-area -->
+
+		{% endblock %}

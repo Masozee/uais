@@ -1,0 +1,161 @@
+{% extends "web/base.html" %}
+{% load static %}
+
+{% block content %}
+		<div class="schedule-area white-bg">
+			<div class="container">
+				<div class="sub-heading">
+					<div class="row">
+						<div class="col-md-12">
+							<h4>Our Schedule</h4>
+						</div>
+					</div>
+				</div>
+				<div class="schedules">
+					<div class="row no-margin">
+						<div class="col-md-3 no-padding">
+							<div class="schedule-title">
+								<h5>Date</h5>
+							</div>
+							<div class="schedule-date">
+								<ul class="nav nav-tabs" role="tablist">
+									<li class="active">
+										<a href="#date-1" data-toggle="tab">
+											<h4>Day 1</h4>
+											<h5>November 24th, 2021 </h5>
+										</a>
+									</li>
+									<li>
+										<a href="#date-2" data-toggle="tab">
+											<h4>Day 2</h4>
+											<h5>November 25th, 2021 </h5>
+										</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+
+						<div class="col-md-9 no-padding">
+
+							<div class="schedule-details">
+								<div class="schedule-title">
+									<div class="row no-margin">
+										<div class="col-sm-3 no-padding">
+											<h5>Time</h5>
+										</div>
+										<div class="col-sm-9 no-padding">
+											<h5>SESSION TITLE</h5>
+										</div>
+									</div>
+								</div>
+
+								<div class="tab-content">
+									<div role="tabpanel" class="tab-pane active" id="date-1">
+										<div class="panel-group" id="accordion" role="tablist">
+                                        {% for e in eventdate %}
+											<div class="single-schedule panel panel-default">
+												<div class="panel-heading" role="tab">
+												  <div class="panel-title single-schedule-title">
+													<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#schedule-1-{{ forloop.counter }}">
+                                                        <div class="row no-margin">
+															<div class="col-sm-3 no-padding">
+																<h5>{{ e.jammulai }} - {{ e.jamselesai }}</h5>
+                                                                <p></p>
+															</div>
+															<div class="col-sm-9 no-padding">
+																<h5>{{ e.Judul }}</h5>
+															</div>
+														</div>
+													</a>
+												  </div>
+												</div>
+                                                    {% if forloop.first %}
+												    <div id="schedule-1-{{ forloop.counter }}" class="panel-collapse collapse in" role="tabpanel">
+                                                    {% else %}
+                                                    <div id="schedule-1-{{ forloop.counter }}" class="panel-collapse collapse" role="tabpanel">
+                                                     {% endif %}
+													<div class="panel-body">
+														<div class="row no-margin">
+															<div class="col-sm-3 no-padding">
+																<div class="schedule-img">
+                                                                    {% if e.Pembicara.Foto %}
+																	<img src="/media/{{ e.Pembicara.Foto }}" alt="schedule" />
+                                                                    {% else %}
+																	<img src="{% static 'web/images/schedule/1.jpg' %}" alt="schedule" />
+                                                                    {% endif %}
+																</div>
+															</div>
+															<div class="col-sm-9 no-padding">
+																<div class="schedule-info">
+																	<p>{{ e.Keterangan }}</p>
+																	<h5><span>With</span> : {{ e.Pembicara }} <small>{{ e.Pembicara.Pekerjaan }} at <a href="">{{ e.Pembicara.Perusahaan }}</a></small></h5>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div><!-- /.single-schedule -->
+                                        {% endfor %}
+										</div><!-- /.panel-group -->
+                                    </div><!-- /.tab-pane -->
+
+									<div role="tabpanel" class="tab-pane" id="date-2">
+										<div class="panel-group" id="accordion-2" role="tablist">
+                                            {% for f in event %}
+											<div class="single-schedule panel panel-default">
+												<div class="panel-heading" role="tab">
+												  <div class="panel-title single-schedule-title">
+													<a class="collapsed" data-toggle="collapse" data-parent="#accordion-2" href="#schedule-2-{{ forloop.counter }}">
+														<div class="row no-margin">
+															<div class="col-sm-3 no-padding">
+																<h5>{{ f.jammulai }} - {{ f.jamselesai }}</h5>
+															</div>
+															<div class="col-sm-9 no-padding">
+																<h5>{{ f.Judul }}</h5>
+															</div>
+														</div>
+													</a>
+												  </div>
+												</div>
+												{% if forloop.first %}
+                                                    <div id="schedule-2-{{ forloop.counter }}" class="panel-collapse collapse in" role="tabpanel">
+                                                {% else %}
+                                                    <div id="schedule-2-{{ forloop.counter }}" class="panel-collapse collapse" role="tabpanel">
+                                                {% endif %}
+													<div class="panel-body">
+														<div class="row no-margin">
+															<div class="col-sm-3 no-padding">
+																<div class="schedule-img">
+                                                                    {% if f.Pembicara.Foto %}
+                                                                    <img src="/media/{{ f.Pembicara.Foto }}" alt="schedule" />
+                                                                    {% else %}
+																	<img src="{% static 'web/images/schedule/1.jpg' %}" alt="schedule" />
+                                                                    {% endif %}
+																</div>
+															</div>
+															<div class="col-sm-9 no-padding">
+																<div class="schedule-info">
+																	<p>{{ f.Keterangan }}</p>
+																	<h5><span>With</span> : {{ f.Pembicara }} <small>{{ f.Pembicara.Pekerjaan }} at <a href="">{{ f.Pembicara.Perusahaan }}</a></small></h5>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div><!-- /.single-schedule -->
+											{% endfor %}
+										</div><!-- /.panel-group -->
+									</div><!-- /.tab-pane -->
+
+								</div><!-- /.tab-content -->
+
+							</div><!-- /.schedule-details -->
+
+						</div><!-- /.col -->
+					</div><!-- /.row -->
+				</div><!-- /.schedules -->
+			</div>
+		</div><!-- /.schedule-area -->
+
+
+{% endblock %}

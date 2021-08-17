@@ -1,0 +1,500 @@
+{% extends "web/base.html" %}
+{% load static %}
+
+{% block content %}
+		<div class="header-area" id="home-header">
+			<div class="header-slide header-slide-1">
+				<div class="overlay">
+					<div class="container">
+						<div class="row">
+							<div class="col-md-12">
+								<h3>26 - 27 November 2021, <span>Jakarta</span></h3>
+								<h1><small>University Centre of Excellence – AIDS Research Center International Symposium 2021</small></h1>
+								<h1 >The Aging of People with HIV</h1>
+								<ul class="buttons">
+									<li><a href="https://rebrand.ly/iclhs-registration" class="line-button">Register Now</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div><!-- /.header-area -->
+		<div class="about-area gray-bg" id="about">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-6 mt-2">
+							<img src="{% static 'web/images/bg/poster.jpg' %}" alt="video-intro" />
+					</div>
+					<div class="col-md-6">
+						<div class="about-text">	
+							<h4>About The Event</h4>
+							<p>The combined antiretroviral treatment (ART) has helped people living with HIV to achieve almost the same life expectancy and quality of life as the general population. On the other hand, longer life expectancy also brings about other health challenges. The global HIV prevalence among adults has been estimated at around 3.6 million (1). The number of people aged 50 and above was projected at around 7.5 million by 2020 or around 21% (2). The proportion was higher than that of 2016. Asia and the Pacific regions showed the highest surge (from around 15% in 2016 to about 45% in 2020 (2). Around 80% of people living with HIV aged 50 and above lived in low- and middle-income countries. In Indonesia, it has been estimated that the proportion of people living with HIV aged 50 reached 9.2% in 2020 (3). All adults with HIV are at risk of age-related diseases, yet those aged 50 years and above have an even higher risk. It is, then, essential to support people living with HIV in facing age-related health issues and achieving healthy ageing. </p>
+                            <div class="become-sponsor">
+                                <a href="{% url 'about' %}" class="button alt" >Read more</a>
+                            </div>
+						</div>
+					</div>
+				</div><!-- /.row -->
+			</div><!-- /.container -->
+		</div><!-- /.about-area -->
+		<div class="subthemes-area">
+			<div class="container">
+                <div class="sub-heading">
+						<div class="row">
+							<div class="col-md-12">
+								<h4>CONFERENCE SUBTHEMES</h4>
+							</div>
+						</div>
+					</div>
+				<div class="row">
+					<div class="col-md-12">
+						<div class="row">
+							<div class="col-sm-3 card-tema">
+								<div class="single-about primary-shadow white-bg">
+									<h5>Voices of the Communities</h5>
+                                </div>
+							</div>
+							<div class="col-sm-3 card-tema">
+								<div class="single-about primary-shadow white-bg">
+									<h5>HIV and Health Challenges in a Later Age</h5>
+                                </div>
+							</div>
+							<div class="col-sm-3 card-tema">
+								<div class="single-about primary-shadow white-bg">
+									<h5>Caring for People Living with HIV at a Later Age</h5>
+                                </div>
+							</div>
+							<div class="col-sm-3 card-tema">
+								<div class="single-about primary-shadow white-bg">
+									<h5>Research on HIV & Aging (Way Forward for A Better Care)</h5>
+                                </div>
+							</div>
+						</div>
+					</div>
+				</div><!-- /.row -->
+			</div><!-- /.container -->
+		</div><!-- /.about-area -->
+		<div class="speakers-area gray-bg" id="speakers">
+			<div class="container">
+				<div class="sub-heading">
+					<div class="row">
+						<div class="col-md-12">
+							<h4>Our Speakers</h4>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+                    {% for a in pembicara %}
+					<div class="col-md-3 col-sm-6 mb30">
+						<div class="single-speaker primary-shadow white-bg" >
+							<div class="speaker-cover" style="height: 250px;">
+								<img src="/media/{{ a.Foto }}" alt="cover" style="object-fit: cover" />
+								<div class="sperker-cover-over">
+									<div class="speakers-thought">
+										<p>{{ a.Deskripsi_singkat |truncatewords:20}}
+										</p>
+										<a href="" data-toggle="modal" data-target="#Speaker-{{ a.pk }}">More About Me</a>
+									</div>
+								</div>
+								<ul class="speaker-social">
+									<li><a href="{{ a.Facebook }}"><i class="fa fa-facebook"></i></a></li>
+									<li><a href="{{ a.Twitter }}"><i class="fa fa-twitter"></i></a></li>
+									<li><a href="{{ a.Instagram }}"><i class="fa fa-instagram"></i></a></li>
+								</ul>
+								<h6>{{ a.Pekerjaan }}</h6>
+							</div>
+							<div class="modal fade" id="Speaker-{{ a.pk }}" tabindex="-{{ a.pk }}">
+								<div class="container">
+									<div class="row">
+										<div class="col-md-2"></div>
+										<div class="col-md-8">
+											<div class="speaker-details white-bg primary-shadow">
+												<div class="row no-margin">
+													<div class="col-sm-6 no-padding">
+														<div class="speaker-images-slider">
+															<img src="/media/{{ a.Foto }}" alt="speaker" />
+														</div>
+													</div>
+													<div class="col-sm-6 no-padding">
+														<div class="speaker-details-texts">
+															<div class="sdt-top">
+																<h4>{{ a.Nama }}</h4>
+																<h6>{{ a.Pekerjaan }}</h6>
+																<ul>
+																	<li><a href="{{ a.Facebook }}"><i class="fa fa-facebook"></i></a></li>
+																	<li><a href="{{ a.Twitter }}"><i class="fa fa-twitter"></i></a></li>
+																	<li><a href="{{ a.Instagram }}"><i class="fa fa-instagram"></i></a></li>
+																</ul>
+															</div>
+															<div class="sdt-bottom">
+																<p>{{ a.Deskripsi_singkat }}</p>
+																<a href="" class="button alt small" data-dismiss="modal">Close</a>
+															</div>
+														</div>
+													</div>
+												</div><!-- /.row -->
+											</div><!-- /.speaker-details -->
+										</div>
+										<div class="col-md-2"></div>
+									</div><!-- /.row -->
+								</div><!-- /.container -->
+							</div><!-- /.modal -->
+							<div class="speaker-name">
+								<h5 title="{{ a.panggilan }}">{{ a.penggilan }}</h5>
+							</div>
+						</div><!-- /.single-speaker -->
+					</div><!-- /.col -->
+                    {% endfor %}
+				</div><!-- /.row -->
+			</div><!-- /.container -->
+		</div><!-- /.speakers-area -->
+        <div class="important-dates " id="date">
+           <div class="container">
+                <div class="sub-heading">
+						<div class="row">
+							<div class="col-md-12">
+								<h4>Important Date and Time</h4>
+							</div>
+						</div>
+					</div>
+				<div class="row">
+					<div class="col-md-12">
+						<div class="row">
+							<div class="col-sm-3 card-tema">
+								<div class="single-about primary-shadow white-bg">
+									<h5>International Symposium</h5>
+									<p>26-27 November 2021</p>
+								</div>
+							</div>
+							<div class="col-sm-3 card-tema">
+								<div class="single-about primary-shadow white-bg">
+									<h5>1st Pre-Event (Discussion Forum “HIV dan Usia Lanjut: Cerita dari Komunitas”)</h5>
+									<p>19 August 2021</p>
+								</div>
+							</div>
+							<div class="col-sm-3 card-tema">
+								<div class="single-about primary-shadow white-bg">
+									<h5>2nd Pre-Event (Lecture Series “Persiapan Menuju Usia Lanjut”)</h5>
+									<p>19 August – 21 October 2021</p>
+								</div>
+							</div>
+							<div class="col-sm-3 card-tema">
+								<div class="single-about primary-shadow white-bg">
+									<h5>Poster Announcement</h5>
+									<p>TBA</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div><!-- /.row -->
+			</div><!-- /.container -->
+        </div>
+		<div class="schedule-area white-bg">
+		    <div class="container">
+		        <div class="sub-heading">
+					<div class="row">
+						<div class="col-md-12">
+							<h4>Our Schedule</h4>
+						</div>
+					</div>
+				</div>
+		        <div class="schedules">
+					<div class="row no-margin">
+						<div class="col-md-3 no-padding">
+							<div class="schedule-title">
+								<h5>Date</h5>
+							</div>
+							<div class="schedule-date">
+								<ul class="nav nav-tabs" role="tablist">
+									<li class="active">
+										<a href="#date-1" data-toggle="tab">
+											<h4>Day 1</h4>
+											<h5>November 26th, 2021 </h5>
+										</a>
+									</li>
+									<li>
+										<a href="#date-2" data-toggle="tab">
+											<h4>Day 2</h4>
+											<h5>November 27th, 2021 </h5>
+										</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+
+						<div class="col-md-9 no-padding">
+
+							<div class="schedule-details">
+								<div class="schedule-title">
+									<div class="row no-margin">
+										<div class="col-sm-3 no-padding">
+											<h5>Time</h5>
+										</div>
+										<div class="col-sm-9 no-padding">
+											<h5>SESSION TITLE</h5>
+										</div>
+									</div>
+								</div>
+
+								<div class="tab-content">
+									<div role="tabpanel" class="tab-pane active" id="date-1">
+										<div class="panel-group" id="accordion" role="tablist">
+                                        {% for e in eventdate %}
+											<div class="single-schedule panel panel-default">
+												<div class="panel-heading" role="tab">
+												  <div class="panel-title single-schedule-title">
+													<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#schedule-1-{{ forloop.counter }}">
+                                                        <div class="row no-margin">
+															<div class="col-sm-3 no-padding">
+																<h5>{{ e.jammulai }} - {{ e.jamselesai }}</h5>
+                                                                <p></p>
+															</div>
+															<div class="col-sm-9 no-padding">
+																<h5>{{ e.Judul }}</h5>
+															</div>
+														</div>
+													</a>
+												  </div>
+												</div>
+                                                    {% if forloop.first %}
+												    <div id="schedule-1-{{ forloop.counter }}" class="panel-collapse collapse in" role="tabpanel">
+                                                    {% else %}
+                                                    <div id="schedule-1-{{ forloop.counter }}" class="panel-collapse collapse" role="tabpanel">
+                                                     {% endif %}
+													<div class="panel-body">
+														<div class="row no-margin">
+															<div class="col-sm-3 no-padding">
+																<div class="schedule-img">
+                                                                    {% if e.Pembicara.Foto %}
+																	<img src="/media/{{ e.Pembicara.Foto }}" alt="schedule" />
+                                                                    {% else %}
+																	<img src="{% static 'web/images/schedule/1.jpg' %}" alt="schedule" />
+                                                                    {% endif %}
+																</div>
+															</div>
+															<div class="col-sm-9 no-padding">
+																<div class="schedule-info">
+																	<p>{{ e.Keterangan }}</p>
+																	<h5><span>With</span> : {{ e.Pembicara }} <small>{{ e.Pembicara.Pekerjaan }} at <a href="">{{ e.Pembicara.Perusahaan }}</a></small></h5>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+                                        {% endfor %}
+										</div>
+                                    </div>
+
+									<div role="tabpanel" class="tab-pane" id="date-2">
+										<div class="panel-group" id="accordion-2" role="tablist">
+                                            {% for f in event %}
+											<div class="single-schedule panel panel-default">
+												<div class="panel-heading" role="tab">
+												  <div class="panel-title single-schedule-title">
+													<a class="collapsed" data-toggle="collapse" data-parent="#accordion-2" href="#schedule-2-{{ forloop.counter }}">
+														<div class="row no-margin">
+															<div class="col-sm-3 no-padding">
+																<h5>{{ f.jammulai }} - {{ f.jamselesai }}</h5>
+															</div>
+															<div class="col-sm-9 no-padding">
+																<h5>{{ f.Judul }}</h5>
+															</div>
+														</div>
+													</a>
+												  </div>
+												</div>
+												{% if forloop.first %}
+                                                    <div id="schedule-2-{{ forloop.counter }}" class="panel-collapse collapse in" role="tabpanel">
+                                                {% else %}
+                                                    <div id="schedule-2-{{ forloop.counter }}" class="panel-collapse collapse" role="tabpanel">
+                                                {% endif %}
+													<div class="panel-body">
+														<div class="row no-margin">
+															<div class="col-sm-3 no-padding">
+																<div class="schedule-img">
+                                                                    {% if f.Pembicara.Foto %}
+                                                                    <img src="/media/{{ f.Pembicara.Foto }}" alt="schedule" />
+                                                                    {% else %}
+																	<img src="{% static 'web/images/schedule/1.jpg' %}" alt="schedule" />
+                                                                    {% endif %}
+																</div>
+															</div>
+															<div class="col-sm-9 no-padding">
+																<div class="schedule-info">
+																	<p>{{ f.Keterangan }}</p>
+																	<h5><span>With</span> : {{ f.Pembicara }} <small>{{ f.Pembicara.Pekerjaan }} at <a href="">{{ f.Pembicara.Perusahaan }}</a></small></h5>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+											{% endfor %}
+										</div>
+									</div>
+
+								</div>
+
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+            </div>
+        </div>
+        <div class="sponsors-area gray-bg" id="sponsor">
+			<div class="container">
+				<div class="sub-heading">
+					<div class="row">
+						<div class="col-md-12">
+							<h4>Our Sponsors</h4>
+						</div>
+					</div>
+				</div>
+
+				<div class="sponsors-nav">
+					<ul class="nav nav-tabs">
+						<li class="active"><a href="#SilverSponsors" data-toggle="tab">Silver Sponsors</a></li>
+						<li><a href="#GoldSponsors" data-toggle="tab">Gold Sponsors</a></li>
+						<li><a href="#PlatinumSponsors" data-toggle="tab">Platinum Sponsors</a></li>
+					</ul>
+				</div>
+
+				<div class="tab-content sponsors-contents text-center">
+					<div role="tabpanel" class="tab-pane active" id="SilverSponsors">
+						<div class="row">
+							<div class="col-md-3 col-sm-6 mb30">
+								<div class="single-sponsor primary-shadow white-bg">
+									<img src="{% static 'web/images/sponsor/1.png' %}" alt="sponsor" />
+								</div>
+							</div>
+							<div class="col-md-3 col-sm-6 mb30">
+								<div class="single-sponsor primary-shadow white-bg">
+									<img src="{% static 'web/images/sponsor/1.png' %}" alt="sponsor" />
+								</div>
+							</div>
+							<div class="col-md-3 col-sm-6 mb30">
+								<div class="single-sponsor primary-shadow white-bg">
+									<img src="{% static 'web/images/sponsor/1.png' %}" alt="sponsor" />
+								</div>
+							</div>
+							<div class="col-md-3 col-sm-6 mb30">
+								<div class="single-sponsor primary-shadow white-bg">
+									<img src="{% static 'web/images/sponsor/1.png' %}" alt="sponsor" />
+								</div>
+							</div>
+						</div>
+					</div><!-- /.tabpanel -->
+					<div role="tabpanel" class="tab-pane" id="GoldSponsors">
+						<div class="row">
+							<div class="col-md-3 col-sm-6 mb30">
+								<div class="single-sponsor primary-shadow white-bg">
+									<img src="{% static 'web/images/sponsor/1.png' %}" alt="sponsor" />
+								</div>
+							</div>
+							<div class="col-md-3 col-sm-6 mb30">
+								<div class="single-sponsor primary-shadow white-bg">
+									<img src="{% static 'web/images/sponsor/1.png' %}" alt="sponsor" />
+								</div>
+							</div>
+							<div class="col-md-3 col-sm-6 mb30">
+								<div class="single-sponsor primary-shadow white-bg">
+									<img src="{% static 'web/images/sponsor/1.png' %}" alt="sponsor" />
+								</div>
+							</div>
+							<div class="col-md-3 col-sm-6 mb30">
+								<div class="single-sponsor primary-shadow white-bg">
+									<img src="{% static 'web/images/sponsor/1.png' %}" alt="sponsor" />
+								</div>
+							</div>
+						</div>
+					</div><!-- /.tabpanel -->
+					<div role="tabpanel" class="tab-pane" id="PlatinumSponsors">
+						<div class="row">
+							<div class="col-md-3 col-sm-6 mb30">
+								<div class="single-sponsor primary-shadow white-bg">
+									<img src="{% static 'web/images/sponsor/1.png' %}" alt="sponsor" />
+								</div>
+							</div>
+							<div class="col-md-3 col-sm-6 mb30">
+								<div class="single-sponsor primary-shadow white-bg">
+									<img src="{% static 'web/images/sponsor/1.png' %}" alt="sponsor" />
+								</div>
+							</div>
+							<div class="col-md-3 col-sm-6 mb30">
+								<div class="single-sponsor primary-shadow white-bg">
+									<img src="{% static 'web/images/sponsor/1.png' %}" alt="sponsor" />
+								</div>
+							</div>
+							<div class="col-md-3 col-sm-6 mb30">
+								<div class="single-sponsor primary-shadow white-bg">
+									<img src="{% static 'web/images/sponsor/1.png' %}" alt="sponsor" />
+								</div>
+							</div>
+						</div>
+					</div><!-- /.tabpanel -->
+				</div><!-- /.tab-content -->
+			</div><!-- /.container -->
+		</div><!-- /.sponsors-area -->
+		<div class="contact-area white-bg " id="contact">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-8">
+						<div class="location-card mb30 primary-shadow">
+							<div style="width: 100%"><iframe width="770" height="400" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=770&amp;hl=en&amp;q=Jl.%20Jend.%20Sudirman%20No.51,%20RT.5/RW.4,%20Karet%20Semanggi,%20Kecamatan%20Setiabudi,%20Kota%20Jakarta%20Selatan,%20Daerah%20Khusus%20Ibukota%20Jakarta%2012930+(unika%20atma%20jaya)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe></div>
+							<div class="overlay"></div>
+							<div class="location-info">
+								<h6>Unika Atma Jaya</h6>
+								<h4>Jl. Jend. Sudirman No.51</h4>
+							</div>
+							<span class="map-trigger">
+								<i class="fa fa-map-marker"></i>
+							</span>
+							<div class="google-map-area">
+								<div id="map" class="map"></div>
+								<span class="map-close"><i class="fa fa-close"></i></span>
+							</div>
+						</div>
+					</div><!-- /.col -->
+					<div class="col-md-4">
+						<div class="contact-info primary-shadow white-bg">
+							<h4>Contact Info</h4>
+							<div class="row">
+								<div class="col-md-12 col-sm-6">
+									<div class="single-contact-info">
+										<div class="row">
+											<div class="col-xs-7">
+												<span>Sari Lenggogeni</span>
+												<ul>
+													<li>+6281289613557</li>
+												</ul>
+											</div>
+											<div class="col-xs-7">
+												<span>Mervin Hansel Aditama</span>
+												<ul>
+													<li>+6287886446152</li>
+												</ul>
+											</div>
+
+                                            <br>
+											<div class="col-xs-7">
+												<h6>Email</h6>
+												<ul>
+													<li>pph@atmajaya.ac.id</li>
+												</ul>
+											</div>
+										</div>
+									</div>
+								</div><!-- /.col -->
+							</div><!-- /.row -->
+						</div><!-- /.contact-info -->
+					</div><!-- /.col -->
+				</div><!-- /.row -->
+			</div><!-- /.container -->
+		</div><!-- /.contact-area -->
+{% endblock %}
